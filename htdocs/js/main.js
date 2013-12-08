@@ -75,6 +75,8 @@ function setup() {
 function initialize() {
     // game data
     game = {
+        speed : 1,
+        sprites : []
     // @TODO add attributes
     };
     
@@ -95,9 +97,38 @@ function animate() {
     
     // @TODO add code
     
+    // update sprites
+    for ( var i = 0; i < game.sprites.length; i++) {
+        // compute new attributes
+        // position
+        game.sprites[i].position.x += game.speed * game.sprites[i].speed.x;
+        game.sprites[i].position.y += game.speed * game.sprites[i].speed.y;
+        // size
+        if (game.sprites[i].growing) {
+            game.sprites[i].size += game.speed
+                    * Math.sqrt(game.sprites[i].speed.x
+                            * game.sprites[i].speed.x + game.sprites[i].speed.y
+                            * game.sprites[i].speed.y) / 10;
+        }
+        // set sprite attributes
+        // position
+        game.sprites[i].sprite.position.x = game.sprites[i].position.x;
+        game.sprites[i].sprite.position.y = game.sprites[i].position.y;
+        // rotation
+        game.sprites[i].sprite.rotation = Math.atan2(game.sprites[i].speed.y,
+                game.sprites[i].speed.x);
+        // scale
+        if ('size' in game.sprites[i]) {
+            game.sprites[i].sprite.scale.x = game.sprites[i].size
+                    / game.sprites[i].sprite.texture.width;
+            game.sprites[i].sprite.scale.y = game.sprites[i].size
+                    / game.sprites[i].sprite.texture.width;
+        }
+    }
+    
     // render
     renderer.render(stage);
-
+    
     requestAnimFrame(animate);
 }
 
