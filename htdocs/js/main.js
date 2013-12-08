@@ -13,7 +13,7 @@ $(document).ready(
         function() {
             // load assets
             var loader = test = new PIXI.AssetLoader([
-                getBasePath() + "img/pixi.js.png"
+                "img/pixi.js.png"
             
             // @TODO add assets
             
@@ -95,6 +95,9 @@ function animate() {
     
     // @TODO add code
     
+    // render
+    renderer.render(stage);
+
     requestAnimFrame(animate);
 }
 
