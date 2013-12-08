@@ -13,7 +13,8 @@ $(document).ready(
         function() {
             // load assets
             var loader = test = new PIXI.AssetLoader([
-
+                getBasePath() + "img/pixi.js.png"
+            
             // @TODO add assets
             
             ]);
@@ -154,4 +155,38 @@ function toggleMute() {
     else {
         mute();
     }
+}
+
+/**
+ * This function computes the directory of the game's main html file. Prepend
+ * this to paths to remove relative paths.
+ * 
+ * @returns the main html file's directory
+ */
+function getBasePath() {
+    var pathname = window.location.pathname;
+    var directory;
+    if (pathname.indexOf('/') == -1) {
+        if (pathname.indexOf('.') == -1) {
+            // directory at top level
+            directory = pathname + '/';
+        }
+        else {
+            // file at top level
+            directory = '/';
+        }
+    }
+    else {
+        if (pathname.lastIndexOf('.') < pathname.lastIndexOf('/')) {
+            // directory at nested level
+            directory = pathname
+                    + (pathname.lastIndexOf('/') == pathname.length - 1 ? ''
+                            : '/');
+        }
+        else {
+            // file at nested level
+            directory = pathname.substring(0, pathname.lastIndexOf('/') + 1);
+        }
+    }
+    return window.location.origin + directory;
 }
