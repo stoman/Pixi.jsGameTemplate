@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/pixi.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<div id="main-container">
+			<div id="loading">
+				<h3>Loading...</h3>
+				<p class="progress">0%</p>
+			</div>
+			<div id="js-error">
+				<h3>Oops...</h3>
+				<p>It seems like the game doesn't run in your browser. Please
+				try waiting for some seconds, activating javascript and
+				reloading this page.</p>
+			</div>
+			<canvas id="game-canvas"></canvas>
+		</div>
+
+		<a href="#" id="mute" onclick="toggleMute(); return false;"	class="mute">Mute</a>
+	</body>
+</html>

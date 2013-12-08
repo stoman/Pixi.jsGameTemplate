@@ -1,0 +1,42 @@
+body {
+	background-color: #253d48;
+	color: #7a7d7a;
+}
+
+#main-container {
+	width: 700px;
+	margin: 50px auto;
+	position: relative;
+}
+
+#game-canvas {
+	height: 600px;
+	width: 700px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	display: none;
+}
+
+#loading, #js-error {
+	width: 700px;
+	position: absolute;
+	top: 150px;
+	left: 0px;
+	z-index: 3;
+	text-align: center;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+#loading {
+	display: none;
+}
+
+#mute {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color: #ffffff;
+}
