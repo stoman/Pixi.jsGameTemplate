@@ -136,6 +136,8 @@ function animate() {
 var sound = {
     background : undefined
 };
+var muted = false;
+
 // @TODO load sound like sound.background = new Audio("audio/rich-vines.wav");
 
 /**
